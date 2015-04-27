@@ -5,7 +5,9 @@ Project Summary:
   
 How to Run:
   Included is an example driver function that reads a file from the command line and feeds its text into a WordTree object. In order to use my code as intended, you shouldn't make any explicit declarations of or calls to a Word object, as that is handled entirely within the WordTree class. You can declare a WordTree object with:
+  
   WordTree w;
+  
 as it only has one constructor. There are three public methods you can call: parseString(string line) which takes a line of text, parses it into words, and feeds those words into the object's binary search tree, printUniqueWords() which takes no parameters and prints each unique word found in the text in alphabetical order, and findAndPrint(string name) which finds a given word in the binary search tree and prints each word that immediately followed it in the text, as well as the number of times that word followed the original word.
 
 Dependencies:

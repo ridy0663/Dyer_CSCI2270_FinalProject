@@ -12,11 +12,11 @@ Dependencies:
   The example driver function requires the use of std==c++11 
 
 The following c++ libraries are necessary to run this code:
-  iostream
-  "string.h"
-  sstream
-  queue
-  string
+  iostream,
+  "string.h,"
+  sstream,
+  queue,
+  string,
   fstream(only needed for the example driver function)
 
 System Requirements:

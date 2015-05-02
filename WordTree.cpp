@@ -42,24 +42,29 @@ stored in the remainder variable.
 void WordTree::parseString(string line)
 {
     stringstream ss;//This will be used to parse the string
-    queue<string> q;//This will be used to feed strings into the addString function two at a time
+    deque<string> q;//This will be used to feed strings into the addString function two at a time
     string former, latter;//The two current strings, with names representing their place in the queue
 
 //If there's anything legit in the remainder variable, it gets enqueued first
     if(remainder != "NULL STRING")
-        q.push(remainder);
+        q.push_back(remainder);
 
     ss.str(line);
 //This loop simply parses the line and feeds each word into the queue
     while(getline(ss, former, ' '))
     {
-        q.push(former);
+        if(q.size() < q.max_size())
+            q.push_back(former);
+        else{
+            cout<<"Text file is too big!"<<endl;
+            return;
+        }
     }
 
     while(!q.empty())
     {
         former = q.front();
-        q.pop();
+        q.pop_front();
 //If the queue is now empty, that means that there is no latter left to go with former, and former should be stored as
 //the remainder, so that it may be enqueued the next time this function is called.
         if(q.empty())
